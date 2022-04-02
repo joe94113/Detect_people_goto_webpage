@@ -60,7 +60,7 @@ weights_path = "yolov4-tiny.weights"
 config_path = "yolov4-tiny.cfg"
 model = cv2.dnn.readNetFromDarknet(config_path, weights_path)
 layer_name = model.getLayerNames()
-layer_name = [layer_name[i[0] - 1] for i in model.getUnconnectedOutLayers()]
+layer_name = [layer_name[i-1] for i in model.getUnconnectedOutLayers()]
 
 # 針對筆電視訊影像進行偵測，也可改為其他影像來源
 cap = cv2.VideoCapture(0)
